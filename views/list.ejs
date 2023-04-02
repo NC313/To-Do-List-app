@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title><%= listTitle %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="box">
+    <div id="heading">
+      <h1><%= listTitle %></h1>
+    </div>
+    <form class="item-form" action="<%= route %>" method="post">
+      <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+      <% if (route === "/work") { %>
+        <input type="hidden" name="list" value="Work">
+      <% } %>
+      <button type="submit">+</button>
+    </form>
+    <div class="items">
+      <% newListItems.forEach(function(item) { %>
+      <div class="item">
+        <input type="checkbox">
+        <p><%= item %></p>
+      </div>
+      <% }) %>
+    </div>
+    <div class="buttons">
+      <a href="/" class="button">Personal</a>
+      <a href="/about" class="button">About</a>
+      <a href="/work" class="button">Work</a>
+    </div>
+  </div>
+</body>
+</html>
